@@ -29,7 +29,7 @@
 		$redisClient->connect('127.0.0.1', 6379);
 		$value=json_encode($val);
 		if($expire > 0) {
-			$redisClient->setex($key,$expire, $value)lcfirst
+			$redisClient->setex($key,$expire, $value);
 		} else {
 			$redisClient->set($key, $value);
 		}
