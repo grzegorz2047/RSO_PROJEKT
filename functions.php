@@ -4,7 +4,7 @@
 	function session_check() {
 		if(!isset($_COOKIE['MYSID'])) {
 			$token = hash('sha256', $login.$password.time());
-			setcoockie('MYSID', $token);
+			setcookie('MYSID', $token);
 			$user = array('id'=>NULL,'username'=>"Visitor");
 			redis_set_json_($token, $user, 0);
 		} else {
