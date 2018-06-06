@@ -8,8 +8,8 @@
 			$user = array('id'=>NULL,'username'=>"Visitor");
 			redis_set_json_($token, $user, 0);
 		} else {
-			$token=$_COOKIE['MYSID'];
-			if(isset($_POST['username']) and isset($_POST['password']) {
+			$token = $_COOKIE['MYSID'];
+			if(isset($_POST['username']) and isset($_POST['password'])) {
 				return authorize($_POST['username'], $_POST['password'], $token);
 			}else {
 				return authorize(NULL, NULL, $token);
