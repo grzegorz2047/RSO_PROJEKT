@@ -1,10 +1,10 @@
 <?php
 	include_once("sqlconnect.php");
 	session_start();
-	function getRole($session) {
+	function getRole($login) {
 		$conn = getDBConnection();
-		$stmt = $conn->prepare("SELECT role FROM Users WHERE session = ? LIMIT 1");
-		$stmt->bind_param("s",$_SESSION['session']);
+		$stmt = $conn->prepare("SELECT role FROM Users WHERE login = ? LIMIT 1");
+		$stmt->bind_param("s",$login);
 		$stmt->execute(); 
 		$stmt->bind_result($answer);
 
@@ -13,7 +13,7 @@
 		//echo "Wstawilem ".$login." oraz ".$password;
  		if($error != "") {
 			$conn->close();
-			die("Podany login juz istnieje!");
+			die("error!");
 		}
 		return $answer;
 		if ($answer->num_rows == 1) {
@@ -22,7 +22,7 @@
 		return "ERROR";
 	}
 	
-	function isAdmin($session) {
-		return getRole($session) == "ADMIN";
+	function isAdmin($login) {
+		return getRole($login) == "ADMIN";
 	}
 ?>
