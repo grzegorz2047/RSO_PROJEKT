@@ -6,7 +6,7 @@
 			$token = hash('sha256', $login.$password.time());
 			setcookie('MYSID', $token);
 			$user = array('id'=>NULL,'username'=>"Visitor");
-			redis_set_json_($token, $user, 0);
+			redis_set_json($token, $user, 0);
 		} else {
 			$token = $_COOKIE['MYSID'];
 			if(isset($_POST['username']) and isset($_POST['password'])) {
