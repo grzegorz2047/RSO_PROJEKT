@@ -3,7 +3,7 @@
 	include_once('sqlinit.php');
  	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
 		$conn = getDBConnection();
-		echo $login." ".$password." ".$role." ".$session;
+		echo $mysqli->error_list;
 		$stmt = $conn->prepare("INSERT INTO Users (login, password, role, session) VALUES (?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $login, $password, $role, $session);
 		$login = $_POST['inputUsername'];
