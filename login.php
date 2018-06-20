@@ -30,7 +30,7 @@
 			echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 
 			echo $_SESSION['session'];
-			if(isset($_COOKIE['MYSID'])) {
+			if(isset($_COOKIE['username'] != "Visitor")) {
 				echo "<a href='logout.php' class='btn btn-primary'>Logout</a>";
 				exit;
 			}

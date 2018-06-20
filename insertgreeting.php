@@ -2,10 +2,10 @@
 	include_once("sqlconnect.php");
 	include_once("sessionchecker.php");
 	$session = $_COOKIE['MYID'];
-	if(isset($_COOKIE['MYID']) && isset($_GET['textArea'])) {
+	if(isset($_COOKIE['username'] != "Visitor") && isset($_GET['textArea'])) {
 		$conn = getDBConnection();
-		$stmt = $conn->prepare("SELECT id FROM Users where session = ? LIMIT 1");
-		$stmt->bind_param("s", $_SESSION['session']);
+		$stmt = $conn->prepare("SELECT id FROM Users where password = ? LIMIT 1");
+		$stmt->bind_param("s", $_COOKIE['password']);
 		
 		$answer = $stmt->execute();
 		mysqli_stmt_bind_result($stmt, $name);
@@ -29,7 +29,7 @@
 	} else {
 		echo "Cos poszlo nie tak!";
 		echo "Wpisales: ".$_GET['textArea'];
-		echo "Twoja sesja to ".$_SESSION['session'];
+		echo "Twoja sesja to ".$_COOKIE['MYID'];
 	}
 	/*
 	
