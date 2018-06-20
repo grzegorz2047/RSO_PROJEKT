@@ -19,7 +19,7 @@
 	
 	function logout($user) {
 		$token = $_COOKIE['MYSID'];
-		$user = array('id' => NULL, 'password' => NULL,, 'username' => "Visitor");
+		$user = array('id' => NULL, 'password' => NULL, 'username' => "Visitor");
 		redis_set_json($token, $user, "0");
 		return $user;
 	}
