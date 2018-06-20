@@ -26,6 +26,7 @@
 	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
 		$token = $_COOKIE['MYSID'];
 		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword'], $token);
+		echo $_POST['inputUsername']." ".$_POST['inputPassword'];
 		if($authorized) {
 			setcookie("username", $_POST['inputUsername']);
 			setcookie("password", hash('sha256', $_POST['inputUsername']));

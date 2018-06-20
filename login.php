@@ -32,7 +32,7 @@
 					echo "<a href='logout.php' class='btn btn-primary'>Logout</a>";
 					exit;
 				}
-			}else {
+			} else {
 				echo "Brak cookies username";
 			}
 			if(isset($_GET['start'])) {			

@@ -1,6 +1,5 @@
 <?php
 	include_once("sqlconnect.php");
-	session_start();
 	function getRole($login) {
 		$conn = getDBConnection();
 		$stmt = $conn->prepare("SELECT role FROM Users WHERE login = ? LIMIT 1");
