@@ -24,8 +24,8 @@
 	require_once('functions.php');
 	echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
-		//$token = $_COOKIE['MYSID'];
-		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword'], token);
+		$token = $_COOKIE['MYSID'];
+		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword'], $token);
 		if($authorized) {
 			$_COOKIE['username'] = $_POST['inputUsername'];
 			$_COOKIE['password'] = hash('sha256', $_POST['inputUsername']);
