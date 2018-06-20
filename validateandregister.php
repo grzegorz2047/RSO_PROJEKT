@@ -13,8 +13,8 @@
 		$error = $conn->error;
 		//echo "Wstawilem ".$login." oraz ".$password;
 		if($error != "") {
-			$stmt->close();
-			die("Podany login juz istnieje!");
+			//$stmt->close();
+			die($error."Podany login juz istnieje!");
 		}
 		echo "Zostales zarejestrowany ".$_POST['inputUsername']."\r\n";
 	}
