@@ -1,10 +1,8 @@
-<!doctype html>
-
 <html lang="pl">
 <head>
 	<meta charset="utf-8">
 
-	<title>Opinie o Poznaniu</title>
+	<title>Forum</title>
 	<meta name="description" content="Opinie">
 	<meta name="author" content="Grzegorz Boiński">
 
@@ -29,7 +27,7 @@
 			}*/
 			echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 
-			echo $_SESSION['session'];
+			echo $_COOKIE['username';
 			if(isset($_COOKIE['username']) &&  $_COOKIE['username'] != "Visitor") {
 				echo "<a href='logout.php' class='btn btn-primary'>Logout</a>";
 				exit;
