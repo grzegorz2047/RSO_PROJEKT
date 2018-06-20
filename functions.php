@@ -45,10 +45,10 @@
 	}
 	
 	function authorize($username, $pass, $token) {
-		if($username != NULL and $password != NULL) {
+		if($username != NULL && $pass != NULL) {
 			$conn = getDBConnection();
 			$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
-			$stmt->bind_param("ss", $login, $password);
+			$stmt->bind_param("ss", $login, $pass);
 			$login = $username;
 			$password = hash('sha256', $pass);
 			$answer = $stmt->execute();
