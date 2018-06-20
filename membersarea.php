@@ -48,6 +48,7 @@
 		  </fieldset>
 		</form>
 		<?php
+			require_once('functions.php');
 			if(getRole($session) == "ADMIN") {
 				echo "
 						<form class='form-horizontal' method='post' action='deleteuser.php'>
