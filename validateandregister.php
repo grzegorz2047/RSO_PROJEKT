@@ -3,14 +3,13 @@
 	include_once('sqlinit.php');
  	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
 		$conn = getDBConnection();
-		print_r($conn->error_list);
-		$stmt = $conn->prepare("INSERT INTO Users (login, password, role, session) VALUES (?, ?, ?, ?)");
-		$stmt->bind_param("ssss", $login, $password, $role, $session);
+		//$stmt->bind_param("ssss", $login, $password, $role, $session);
 		$login = $_POST['inputUsername'];
 		$password = hash('sha256', $_POST['inputPassword']);
 		$role = "USER";
 		$session = "";
-		$answer = $stmt->execute();
+		$answer = $conn->query("INSERT INTO Users (login, password, role, session) VALUES (".$login.", ".$password.", ".$role.", ".$session.")");
+
 		$error = $conn->error;
 		//echo "Wstawilem ".$login." oraz ".$password;
 		if($error != "") {
