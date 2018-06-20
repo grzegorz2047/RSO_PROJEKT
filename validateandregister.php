@@ -8,7 +8,7 @@
 		$password = hash('sha256', $_POST['inputPassword']);
 		$role = "USER";
 		$session = "";
-		$answer = $conn->query("INSERT INTO Users (login, password, role, session) VALUES (".$login.", ".$password.", ".$role.", ".$session.")");
+		$answer = $conn->query("INSERT INTO Users (login, password, role) VALUES (".$login.", ".$password.", ".$role.")");
 
 		$error = $conn->error;
 		//echo "Wstawilem ".$login." oraz ".$password;
