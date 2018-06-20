@@ -3,7 +3,7 @@
 	include_once("sessionchecker.php");
 	include_once("toppanel.php");
 
-	$session = $_SESSION['session'];
+	session_check();
 	if(isset($_SESSION['session'])) {
 		//echo "Jestes zalogowany! Twoja sesja to: ".$session."<br>";
 		echo "Twoja rola to: ".getRole($session)."<br>";

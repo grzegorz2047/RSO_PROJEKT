@@ -25,10 +25,16 @@
 	echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
 		$token = $_COOKIE['MYSID'];
-		authorize($_POST['inputUsername'],$_POST['inputPassword'], token);
-		echo "Zostales zalogowany ".$_POST['inputUsername']."\r\n";
-		header("Location:membersarea.php");
-		exit;
+		$authorized = authorize($_POST['inputUsername'],$_POST['inputPassword'], token);
+		if($authorized) {
+			echo "Zostales zalogowany ".$_POST['inputUsername']."\r\n";
+			header("Location:membersarea.php");
+			exit;
+		}else {
+			die("Zle login lub haslo");
+		}
+		
+		
 	}
 
 	/*

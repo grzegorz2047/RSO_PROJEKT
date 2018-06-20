@@ -47,7 +47,7 @@
 	function authorize($username, $pass, $token) {
 		if($username != NULL and $password != NULL) {
 			$conn = getDBConnection();
-			$stmt = $conn->prepare("SELECT password, role FROM Users WHERE  (login = ? AND password = ?)");
+			$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
 			$stmt->bind_param("ss", $login, $password);
 			$login = $username;
 			$password = hash('sha256', $pass);
@@ -67,6 +67,7 @@
 			/* fetch values */
 			while (mysqli_stmt_fetch($stmt)) {
 				$found = true;
+				return true;
 			}
 			if (!$found) {
 				$stmt->close();
