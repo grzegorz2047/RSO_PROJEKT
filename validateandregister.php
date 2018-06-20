@@ -16,7 +16,6 @@
 			$stmt->close();
 			die("Podany login juz istnieje!");
 		}
-		$stmt->close();
 		echo "Zostales zarejestrowany ".$_POST['inputUsername']."\r\n";
 	}
 	/*
