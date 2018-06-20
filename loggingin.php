@@ -27,8 +27,8 @@
 		$token = $_COOKIE['MYSID'];
 		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword'], $token);
 		if($authorized) {
-			setcookie('username', $_POST['inputUsername']);
-			setcookie('password',hash('sha256', $_POST['inputUsername']));
+			setcookie("username", $_POST['inputUsername']);
+			setcookie("password", hash('sha256', $_POST['inputUsername']));
 			echo "Zostales zalogowany ".$_POST['inputUsername']."\r\n";
 			header("Location:membersarea.php");
 			exit;
