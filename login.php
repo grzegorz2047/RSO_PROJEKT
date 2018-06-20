@@ -27,7 +27,7 @@
 			}*/
 			echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 
-			echo $_COOKIE['username';
+			echo $_COOKIE['username'];
 			if(isset($_COOKIE['username']) &&  $_COOKIE['username'] != "Visitor") {
 				echo "<a href='logout.php' class='btn btn-primary'>Logout</a>";
 				exit;
