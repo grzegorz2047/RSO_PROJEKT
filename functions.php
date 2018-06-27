@@ -63,7 +63,7 @@
 			//$result = mysql_query($sql);
 			/* bind result variables */
 			mysqli_stmt_bind_result($stmt, $name, $role);
-			echo $name;
+			echo mysql_num_rows($answer)
 			$found = false;
 			/* fetch values */
 			while (mysqli_stmt_fetch($stmt)) {
