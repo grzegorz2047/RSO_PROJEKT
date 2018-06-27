@@ -3,13 +3,13 @@
 	
 	function session_check() {
 		if(!isset($_COOKIE['MYSID'])) {
-			$token = hash('sha256', $login.$password.time());
+			$token = hash('sha256', "Visitor".time());
 			setcookie('MYSID', $token);
-			$user = array('id'=>NULL,'username'=>"Visitor");
+			$user = array('id' => NULL,'username' => "Visitor");
 			redis_set_json($token, $user, 0);
 		} else {
 			$token = $_COOKIE['MYSID'];
-			if(isset($_POST['username']) and isset($_POST['password'])) {
+			if(isset($_COOKIE['username']) and isset($_COOKIE['password'])) {
 				return authorize($_POST['username'], $_POST['password'], $token);
 			}else {
 				return authorize(NULL, NULL, $token);
@@ -44,13 +44,14 @@
 		return $ret;
 	}
 	
-	function authorize($username, $pass, $token) {
+	function authorize($username, $pass) {
 		if($username != NULL && $pass != NULL) {
 			$conn = getDBConnection();
 			$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
 			$stmt->bind_param("ss", $login, $pass);
 			$login = $username;
 			$password = hash('sha256', $pass);
+			
 			$answer = $stmt->execute();
 			$error = $conn->error;
 			//echo "Wstawilem ".$login." oraz ".$password;

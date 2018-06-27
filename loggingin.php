@@ -25,7 +25,7 @@
 	echo "<a href='index.php' class='btn btn-primary right'>Strona główna</a>";
 	if(isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
 		$token = $_COOKIE['MYSID'];
-		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword'], $token);
+		$authorized = authorize($_POST['inputUsername'], $_POST['inputPassword']);
 		echo $_POST['inputUsername']." ".$_POST['inputPassword'];
 		if($authorized) {
 			setcookie("username", $_POST['inputUsername']);
@@ -33,7 +33,7 @@
 			echo "Zostales zalogowany ".$_POST['inputUsername']."\r\n";
 			header("Location:membersarea.php");
 			exit;
-		}else {
+		} else {
 			die("Zle login lub haslo");
 		}
 		
