@@ -69,9 +69,13 @@
 			while (mysqli_stmt_fetch($stmt)) {
 				$found = true;
 			}
-
+			
 			$stmt->close();
-			return $found;
+			if(!$found) {
+				return false;
+			}else {
+				return true;
+			}
 		}
 		return false;
 	}
