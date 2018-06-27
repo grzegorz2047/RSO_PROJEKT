@@ -68,12 +68,10 @@
 			/* fetch values */
 			while (mysqli_stmt_fetch($stmt)) {
 				$found = true;
-				return true;
 			}
-			if (!$found) {
-				$stmt->close();
-				return false;
-			}
+
+			$stmt->close();
+			return $found;
 		}
 		return false;
 	}
