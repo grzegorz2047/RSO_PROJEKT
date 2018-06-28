@@ -11,7 +11,7 @@
 			$token = $_COOKIE['MYSID'];
 			$authorized = false;
 			if(isset($_COOKIE['username']) and isset($_COOKIE['password'])) {
-				$authorized = authorize($_COOKIE['username'], $_COOKIE['password']);
+				$authorized = authorize($_POST['username'], $_POST['password']);
 				if($authorized) {
 					redis_set_json($token, $user, 0);
 				}
