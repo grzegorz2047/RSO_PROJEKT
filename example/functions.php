@@ -23,7 +23,7 @@ function authorize($username,$password, $token) {
 			$user=array('id'=>333,'username'=>$username);
 		} else {
 			$user=array('id'=>NULL,'username'=>"Visitor");
-			echo "Brak danych";
+			echo "Niepoprawne dane";
 		}
 		redis_set_json($token,$user,"0");
 		return $user;
@@ -75,7 +75,6 @@ function isLegit($username, $pass) {
 		//$result = mysql_query($sql);
 		/* bind result variables */
 		mysqli_stmt_bind_result($stmt, $name, $role);
-		echo mysqli_num_rows($answer);
 		$found = false;
 		/* fetch values */
 		while (mysqli_stmt_fetch($stmt)) {
