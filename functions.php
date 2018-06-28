@@ -45,6 +45,7 @@
 	}
 	
 	function authorize($username, $pass) {
+		$found = false;
 		if($username != NULL && $pass != NULL) {
 			$conn = getDBConnection();
 			$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
