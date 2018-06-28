@@ -18,10 +18,13 @@ function session_check() {
 }
 function authorize($username,$password, $token) {
 	if ($username !=NULL and $password !=NULL) {
-		if (isLegit($username, $password))
+		if (isLegit($username, $password)) {
+			echo "Legitne";
 			$user=array('id'=>333,'username'=>$username);
-		else
+		} else {
 			$user=array('id'=>NULL,'username'=>"Visitor");
+			echo "Brak danych";
+		}
 		redis_set_json($token,$user,"0");
 		return $user;
 	}
@@ -72,7 +75,7 @@ function isLegit($username, $pass) {
 		//$result = mysql_query($sql);
 		/* bind result variables */
 		mysqli_stmt_bind_result($stmt, $name, $role);
-		echo mysql_num_rows($answer);
+		echo mysqli_num_rows($answer);
 		$found = false;
 		/* fetch values */
 		while (mysqli_stmt_fetch($stmt)) {
