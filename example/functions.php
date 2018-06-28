@@ -23,7 +23,7 @@ function authorize($username,$password, $token) {
 			$user=array('id'=>333,'username'=>$username);
 		} else {
 			$user=array('id'=>NULL,'username'=>"Visitor");
-			echo "Niepoprawne dane";
+			echo "<script> alert('Niepoprawne dane');";
 		}
 		redis_set_json($token,$user,"0");
 		return $user;
