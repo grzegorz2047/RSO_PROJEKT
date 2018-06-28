@@ -23,7 +23,6 @@ function authorize($username,$password, $token) {
 			$user=array('id'=>333,'username'=>$username);
 		} else {
 			$user=array('id'=>NULL,'username'=>"Visitor");
-			echo "<script> alert('Niepoprawne dane');";
 		}
 		redis_set_json($token,$user,"0");
 		return $user;
@@ -60,13 +59,13 @@ function isLegit($username, $pass) {
 	if($username != NULL && $pass != NULL) {
 		$conn = getDBConnection();
 		$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
-		$stmt->bind_param("ss", $login, $pass);
+		$stmt->bind_param("ss", $login, $password);
 		$login = $username;
 		$password = hash('sha256', $pass);
 		
 		$answer = $stmt->execute();
 		$error = $conn->error;
-		//echo "Wstawilem ".$login." oraz ".$password;
+		echo "spr ".$login." oraz ".$password;
 		if($error != "") {
 			$stmt->close();
 			die("Wystapil blad!!");
