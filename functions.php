@@ -9,11 +9,15 @@
 			redis_set_json($token, $user, 0);
 		} else {
 			$token = $_COOKIE['MYSID'];
+			$authorized = false;
 			if(isset($_COOKIE['username']) and isset($_COOKIE['password'])) {
-				return authorize($_POST['username'], $_POST['password'], $token);
-			}else {
-				return authorize(NULL, NULL, $token);
+				$authorized = authorize($_COOKIE['username'], $_COOKIE['password']);
+				if($authorized) {
+					redis_set_json($token, $user, 0);
+				}
 			}
+			
+			return @authorized;
 		}
 	}
 	
