@@ -64,7 +64,7 @@
 			//$result = mysql_query($sql);
 			/* bind result variables */
 			mysqli_stmt_bind_result($stmt, $name, $role);
-			echo mysql_num_rows($answer)
+			echo mysql_num_rows($answer);
 			$found = false;
 			/* fetch values */
 			while (mysqli_stmt_fetch($stmt)) {
@@ -72,13 +72,9 @@
 			}
 			
 			$stmt->close();
-			if(!$found) {
-				return false;
-			}else {
-				return true;
-			}
+			return $found;
 		}
-		return false;
+		return $found;
 	}
 	 
 ?>
