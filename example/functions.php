@@ -79,6 +79,7 @@ function isLegit($username, $pass) {
 		/* fetch values */
 		while (mysqli_stmt_fetch($stmt)) {
 			$found = true;
+			echo $name."  ".$role;
 		}
 		
 		$stmt->close();
