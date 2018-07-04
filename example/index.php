@@ -72,8 +72,8 @@
 				if($cache) {
 					print_r( $cache);
 					$rowNumber = 1;
-					$numRows = count($cache[0]);
-					for($i = 0; $i < $numRows; $i++) {
+					$numRows = count($cache);
+					for($i = 0; $i < $numRows; $i++) {//element to tablica 'rekord z 1 postem'
 						if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
 						}else {
@@ -81,8 +81,8 @@
 						}
 						echo "<tr>\n";
 						echo "<td>".$rowNumber."</td>\n";
-						echo "<td>".$cache[0][$i]."</td>\n";
-						echo "<td>".$cache[0][$i]."</td>\n";			
+						echo "<td>".$cache[$i][1]."</td>\n";
+						echo "<td>".$cache[$i][2]."</td>\n";			
 						echo "</tr>\n";
 						$rowNumber++;
 					}
