@@ -20,6 +20,19 @@
 	<body>
 	<?PHP show_menu($user); ?>
 	Hello <?PHP echo $user['username']; ?>! na stronie!
+	<?PHP
+		if ($user !==NULL and $user['id'] !==NULL) {
+			echo 
+			'<div class="row">
+				<div class="col-xs-9 ">
+					<img src="image/b.png " class="pull-right img-responsive">
+				</div>
+				<div class="col-xs-3">
+					<img src='."/var/www/html/uploads/".$user['username']."_avatar.jpg".' class="pull-right img-responsive">
+				</div>
+			</div>';
+		}
+	?>
 		<form action="upload.php" method="post" enctype="multipart/form-data">
 			Wybierz zdjecie jako avatar:
 			<input type="file" name="fileToUpload" id="fileToUpload">

@@ -3,7 +3,7 @@
 	require_once('functions.php');
 	$user = session_check();
 $target_dir = "/var/www/html/uploads/";
-$target_file = $target_dir . $user['username']."_avatar";
+$target_file = $target_dir.$user['username']."_avatar.jpg";
 $extension_purpose = basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($extension_purpose,PATHINFO_EXTENSION));
@@ -29,9 +29,8 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+if($imageFileType != "jpg") {
+    echo "Sorry, only JPG  file is allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error

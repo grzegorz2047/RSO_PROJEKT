@@ -93,6 +93,7 @@ echo '
 				if ($user !==NULL and $user['id'] !==NULL) {
 					//echo '<li class="uk-active"><a href="insertgreeting.php">Dodaj wpis</a></li>';
 					echo '<li class="uk-active"><a href="logout.php">Wyloguj</a></li>';
+					
 				}
 				else {
 					echo '<li class="uk-active"><a href="login.php">Login</a></li>';
