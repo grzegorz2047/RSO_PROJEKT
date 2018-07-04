@@ -20,6 +20,11 @@
 	<body>
 	<?PHP show_menu($user); ?>
 	Hello <?PHP echo $user['username']; ?>! na stronie!
+		<form action="upload.php" method="post" enctype="multipart/form-data">
+			Wybierz zdjecie jako avatar:
+			<input type="file" name="fileToUpload" id="fileToUpload">
+			<input type="submit" value="Wgraj" name="submit">
+		</form>
 		<form class="form-horizontal" method="get" action="insertgreeting.php">
 		  <fieldset>
 			<legend>Add your own greeting on main site</legend>
