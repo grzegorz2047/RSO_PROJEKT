@@ -50,7 +50,7 @@
 			<?php		
 				include_once("sqlconnect.php");
 				require_once('functions.php');
-				$conn = getDBConnection();
+				$conn = getGlobalDBConnection();
 				$stmt = $conn->query("SELECT * FROM Greetings g ORDER BY id DESC LIMIT 10"); 
 				echo "select";
 				echo "num rows: ".$stmt->num_rows;
@@ -72,6 +72,7 @@
 						echo "<td>".$row['author']."</td>\n";
 						echo "<td>".$row['textarea']."</td>\n";			
 						echo "</tr>\n";
+						$rowNumber++;
 					}
 				} else {
 				}
