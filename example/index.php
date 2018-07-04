@@ -21,7 +21,8 @@
 	<?PHP show_menu($user); ?>
 	Hello <?PHP echo $user['username']; ?>! na stronie!
 	<?PHP
-		if ($user !==NULL and $user['id'] !==NULL) {
+		print_r($user);
+		if ($user !==NULL and $user['id'] !== NULL) {
 			echo 
 			'<div class="row">
 				<div class="col-xs-9 ">
