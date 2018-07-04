@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-xs-3">
 					<center><h1>Avatar</h1></center>
-					<img src='."uploads/".$user['username']."_avatar.jpg".' class="pull-right img-responsive">
+					<img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:100px;width:100px;" class="pull-right img-responsive">
 				</div>
 			</div>';
 		}
@@ -40,17 +40,17 @@
 		</form>
 		<form class="form-horizontal" method="get" action="insertgreeting.php">
 		  <fieldset>
-			<legend>Add your own greeting on main site</legend>
+			<legend>Dodaj pozdrowienie na walla</legend>
 			<div class="form-group">
 			  <label for="textArea" class="col-lg-2 control-label">Textarea</label>
 			  <div class="col-lg-10">
 				<textarea class="form-control" rows="3" id="textArea" name="textArea"></textarea>
-				<span class="help-block">Type your greeting</span>
+				<span class="help-block">Wpisz pozdrowienie</span>
 			  </div>
 			</div>
 			<div class="form-group">
 			  <div class="col-lg-10 col-lg-offset-2">
-				<button type="submit" class="btn btn-primary">Submit</button>
+				<button type="submit" class="btn btn-primary">Wyslij</button>
 			  </div>
 			</div>
 		  </fieldset>
