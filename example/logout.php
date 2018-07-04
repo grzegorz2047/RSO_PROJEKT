@@ -1,8 +1,10 @@
 <?php
-	include_once("sqlinit.php");
+	include_once("sqlconnect.php");
 	require_once('functions.php');
-	if(isset($_COOKIE['username'])) {
-		logout($_COOKIE['username']);
+		$user = session_check();
+
+	if(isset($user['username'])) {
+		logout($user['username']);
 	}
 
 	header("Location:index.php");

@@ -12,7 +12,7 @@ function session_check() {
 	else
 		$token=$_COOKIE['MYSID'];
 	if (isset($_POST['username']) and isset($_POST['password']))
-		return authorize($_POST['username'],$_POST['password'],$token);
+		return authorize($_POST['username'], $_POST['password'], $token);
 	else
 		return authorize(NULL,NULL,$token);
 }
