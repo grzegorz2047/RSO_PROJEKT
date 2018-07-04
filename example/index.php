@@ -51,9 +51,11 @@
 				include_once("sqlconnect.php");
 				require_once('functions.php');
 				$conn = getDBConnection();
-				$stmt = $conn->query("SELECT textarea, login FROM Greetings g ORDER BY id DESC LIMIT 10"); 
-					echo "select";
-					echo "num rows: ".$stmt->num_rows;
+				$stmt = $conn->query("SELECT * FROM Greetings g ORDER BY id DESC LIMIT 10"); 
+				echo "select";
+				echo "num rows: ".$stmt->num_rows;
+				$error = $conn->error;
+				echo "jezeli error to: ".$error;
 				if ($stmt->num_rows > 0) {
 					echo ">0";
 					// output data of each row
