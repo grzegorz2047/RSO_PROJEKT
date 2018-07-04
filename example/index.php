@@ -72,8 +72,7 @@
 				if($cache) {
 					print_r( $cache);
 					$rowNumber = 1;
-						$numRows = count($cache);
-						foreach ($cache['0'] as $row) {
+						foreach ($cache[0] as $row) {
 							if($rowNumber % 2 == 0) {
 								echo "<tr>\n";
 							}else {
@@ -81,8 +80,8 @@
 							}
 							echo "<tr>\n";
 							echo "<td>".$rowNumber."</td>\n";
-							echo "<td>".$row['1']."</td>\n";
-							echo "<td>".$row['2']."</td>\n";			
+							echo "<td>".$row[1]."</td>\n";
+							echo "<td>".$row[2]."</td>\n";			
 							echo "</tr>\n";
 							$rowNumber++;
 						}
