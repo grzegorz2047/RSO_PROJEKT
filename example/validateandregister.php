@@ -13,7 +13,7 @@
 		$password = hash('sha256', $_POST['inputPassword']);
 		$role = "USER";
 		$session = "";//Name, Surname, Address, NIP,PESEL
-		$answer = $conn->query("INSERT INTO Users (login, name, surname, address, nip, pesel, password, role) VALUES ('".$login."', '".$name."', '".$address."', '".$nip."', '".$pesel."', '".$password."', '".$role."')");
+		$answer = $conn->query("INSERT INTO Users (login, name, surname, address, nip, pesel, password, role) VALUES ('".$login."', '".$name."', '".$surname."', '".$address."', '".$nip."', '".$pesel."', '".$password."', '".$role."')");
 
 		$error = $conn->error;
 		//echo "Wstawilem ".$login." oraz ".$password;
