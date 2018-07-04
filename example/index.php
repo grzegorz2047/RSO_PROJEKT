@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-xs-3">
 					<center><h1>Avatar</h1></center>
-					<img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:100px;width:100px;" class="pull-right img-responsive">
+					<center><img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:100px;width:100px;" class="img-responsive"></center>
 				</div>
 			</div>';
 		}
