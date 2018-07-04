@@ -15,6 +15,8 @@
 			$stmt->close();
 			die("BLAD!");
 		}
+		redis_set_json('maincache', false, 0);
+
 		header("Location:index.php");
 		exit;
 	} else {

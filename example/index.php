@@ -30,9 +30,7 @@
 					<center><h1>Avatar</h1></center>
 					<center><img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:150px;width:150px;" class="img-responsive"></center>
 				</div>
-			</div>';
-		}
-	?>
+			</div>
 		<form action="upload.php" method="post" enctype="multipart/form-data">
 			Wybierz zdjecie jako avatar:
 			<input type="file" name="fileToUpload" id="fileToUpload">
@@ -54,7 +52,9 @@
 			  </div>
 			</div>
 		  </fieldset>
-		</form>
+		</form>';
+		}
+	?>
 		<h1>Pozdrowienia</h1>
 		  <table class="table table-striped table-hover ">
 		  <thead>
@@ -71,7 +71,7 @@
 				$cache = redis_get_json('maincache');
 				if($cache) {
 					$rowNumber = 1;
-						while($row = mysql_fetch_assoc($memberData)) {
+						while($row = mysql_fetch_assoc($cache)) {
 							echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
@@ -97,7 +97,7 @@
 					echo ">0";
 					// output data of each row
 					$rowNumber = 1;
-					redis_set_json('maincache', mysql_fetch_table($stmt));
+					redis_set_json('maincache', mysql_fetch_table($stmt), 0);
 					while($row = $stmt->fetch_assoc()) {
 						echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
