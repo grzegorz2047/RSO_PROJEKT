@@ -71,7 +71,7 @@
 				$cache = redis_get_json('maincache');
 				if($cache) {
 					$rowNumber = 1;
-						while($row = mysqli_fetch_assoc($cache)) {
+						while($row = $cache) {
 							echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
