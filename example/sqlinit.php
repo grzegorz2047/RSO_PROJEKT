@@ -2,7 +2,7 @@
 	include_once("sqlconnect.php");
 	$sql = "CREATE DATABASE IF NOT EXISTS testdb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci";
 	$conn = getGlobalDBConnection();
-	echo "Connected successfully";
+	//echo "Connected successfully";
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
@@ -36,7 +36,7 @@
 			)";
 
 	if ($conn->query($sql) === TRUE) {
-		echo "Gut";
+		//echo "Gut";
 	} else {
 		echo "Error creating table: " . $conn->error;
 	}
