@@ -71,17 +71,17 @@
 				$cache = redis_get_json('maincache');
 				if($cache) {
 					$rowNumber = 1;
-						while($row = $cache) {
-							echo "looop".$rowNumber;
-						if($rowNumber % 2 == 0) {
+						$numRows = count($cache);
+						for($i = 0; $i < $numRows; $i++) {
+						 if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
 						}else {
 							echo "<tr class='success'>\n";
 						}
 						echo "<tr>\n";
 						echo "<td>".$rowNumber."</td>\n";
-						echo "<td>".$row['author']."</td>\n";
-						echo "<td>".$row['textarea']."</td>\n";			
+						echo "<td>".$cache[$i]['author']."</td>\n";
+						echo "<td>".$cache[$i]['author']."</td>\n";			
 						echo "</tr>\n";
 						$rowNumber++;
 					}
