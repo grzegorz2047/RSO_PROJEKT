@@ -4,6 +4,7 @@
 	$user=session_check();
 	if ($user !== NULL and $user['id'] !== NULL and isset($_GET['textArea'])) {
 		$conn = getDBConnection();
+		$name = $user['username'];
 		$stmt = $conn->prepare("INSERT INTO Greetings (author, textarea) VALUES (? , ?)");
 		$stmt->bind_param("is", $name, $textarea);
 		$textarea = $_GET['textArea'];
