@@ -21,7 +21,7 @@
 	<?PHP show_menu($user); ?>
 	Hello <?PHP echo $user['username']; ?>! na stronie!
 	<?PHP
-		print_r($user);
+		//print_r($user);
 		if ($user !==NULL and $user['id'] !== NULL) {
 			echo 
 			'<div class="row">
@@ -54,7 +54,7 @@
 			</div>
 		  </fieldset>
 		</form>';
-			print_r($user);
+			//print_r($user);
 			echo "name ".$user['name']."<br>".$user['surname']."<br>".$user['address']."<br>".$user['nip']."<br>".$user['pesel']."<br>";
 		}
 	?>
@@ -93,10 +93,10 @@
 				}
 				$conn = getGlobalDBConnection();
 				$stmt = $conn->query("SELECT * FROM Greetings g ORDER BY id DESC LIMIT 10"); 
-				echo "select";
-				echo "num rows: ".$stmt->num_rows;
+				//echo "select";
+				//echo "num rows: ".$stmt->num_rows;
 				$error = $conn->error;
-				echo "jezeli error to: ".$error;
+				//echo "jezeli error to: ".$error;
 				if ($stmt->num_rows > 0) {
 					echo ">0";
 					// output data of each row
