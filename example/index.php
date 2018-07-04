@@ -72,19 +72,20 @@
 				if($cache) {
 					print_r( $cache);
 					$rowNumber = 1;
-						foreach ($cache[0] as $row) {
-							if($rowNumber % 2 == 0) {
-								echo "<tr>\n";
-							}else {
-								echo "<tr class='success'>\n";
-							}
+					$numRows = count($cache[0]);
+					for($i = 0; $i < $numRows; $i++) {
+						if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
-							echo "<td>".$rowNumber."</td>\n";
-							echo "<td>".$row[1]."</td>\n";
-							echo "<td>".$row[2]."</td>\n";			
-							echo "</tr>\n";
-							$rowNumber++;
+						}else {
+							echo "<tr class='success'>\n";
 						}
+						echo "<tr>\n";
+						echo "<td>".$rowNumber."</td>\n";
+						echo "<td>".$cache[0][$i]."</td>\n";
+						echo "<td>".$cache[0][$i]."</td>\n";			
+						echo "</tr>\n";
+						$rowNumber++;
+					}
 					return;
 				}
 				$conn = getGlobalDBConnection();
