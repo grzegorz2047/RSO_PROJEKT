@@ -90,10 +90,13 @@ function show_menu($user)
 echo '
 <nav class="uk-navbar">
     <ul class="uk-navbar-nav">';
-                if ($user==NULL or $user['id']==NULL)
-                        echo '<li class="uk-active"><a href="login.php">Login</a></li>';
-                else
-                        echo '<li class="uk-active"><a href="logout.php">Logout</a></li>';
+				if ($user !==NULL and $user['id'] !==NULL) {
+					echo '<li class="uk-active"><a href="insertgreeting.php">Dodaj wpis</a></li>';
+					echo '<li class="uk-active"><a href="logout.php">Wyloguj</a></li>';
+				}
+				else {
+					echo '<li class="uk-active"><a href="login.php">Login</a></li>';
+                }
 echo '        <li class="uk-parent"><a href="index.php">Home</a></li>
     </ul>
 </nav>';
