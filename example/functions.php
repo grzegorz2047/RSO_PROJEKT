@@ -21,9 +21,9 @@ function authorize($username,$password, $token) {
 		if ($userData = isLegit($username, $password)) {
 			print_r($userData);
 			echo "Legitne";
-			$user=array('id'=>333,'username'=>$username);
+			$user=array('id'=>$userData['id'],'name'=>$userData['name'], 'surname'=>$userData['surname'], 'address'=>$userData['address'], 'nip'=>$userData['nip'], 'pesel'=>$userData['pesel'],'username'=>$username);
 		} else {
-			$user=array('id'=>NULL,'username'=>"Visitor");
+			$user=array('id'=>NULL,'name'=>NULL, 'surname'=>NULL, 'address'=>NULL, 'nip'=>NULL, 'pesel'=>NULL,'username'=>"Visitor");
 		}
 		redis_set_json($token,$user,"0");
 		return $user;
