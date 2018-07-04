@@ -97,7 +97,7 @@
 					echo ">0";
 					// output data of each row
 					$rowNumber = 1;
-					redis_set_json('maincache', mysql_fetch_table($stmt), 0);
+					redis_set_json('maincache', mysql_fetch_array($stmt), 0);
 					while($row = $stmt->fetch_assoc()) {
 						echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
