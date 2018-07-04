@@ -91,7 +91,7 @@ echo '
 <nav class="uk-navbar">
     <ul class="uk-navbar-nav">';
 				if ($user !==NULL and $user['id'] !==NULL) {
-					echo '<li class="uk-active"><a href="insertgreeting.php">Dodaj wpis</a></li>';
+					//echo '<li class="uk-active"><a href="insertgreeting.php">Dodaj wpis</a></li>';
 					echo '<li class="uk-active"><a href="logout.php">Wyloguj</a></li>';
 				}
 				else {

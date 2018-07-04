@@ -20,6 +20,23 @@
 	<body>
 	<?PHP show_menu($user); ?>
 	Hello <?PHP echo $user['username']; ?>! na stronie!
+		<form class="form-horizontal" method="get" action="insertgreeting.php">
+		  <fieldset>
+			<legend>Add your own greeting on main site</legend>
+			<div class="form-group">
+			  <label for="textArea" class="col-lg-2 control-label">Textarea</label>
+			  <div class="col-lg-10">
+				<textarea class="form-control" rows="3" id="textArea" name="textArea"></textarea>
+				<span class="help-block">Type your greeting</span>
+			  </div>
+			</div>
+			<div class="form-group">
+			  <div class="col-lg-10 col-lg-offset-2">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			  </div>
+			</div>
+		  </fieldset>
+		</form>
 		<h1>Pozdrowienia</h1>
 		  <table class="table table-striped table-hover ">
 		  <thead>

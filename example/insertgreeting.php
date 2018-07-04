@@ -2,7 +2,7 @@
 	include_once("sqlconnect.php");
 	require_once('functions.php');
 	$user=session_check();
-	if ($user !== NULL and $user['id'] !== NULL) {
+	if ($user !== NULL and $user['id'] !== NULL and isset($_GET['textArea'])) {
 		$conn = getGloDBConnection();
 		$stmt = $conn->prepare("INSERT INTO Greetings (author, textarea) VALUES (? , ?)");
 		$stmt->bind_param("is", $name, $textarea);
