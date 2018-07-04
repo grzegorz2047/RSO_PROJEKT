@@ -1,7 +1,7 @@
 <?PHP
 	include_once("sqlconnect.php");
 	require_once('functions.php');
-	$user=session_check();
+	$user = session_check();
 ?>
 <html>
 	<head>
@@ -48,12 +48,12 @@
 		  </thead>
 		  <tbody>
 			<?php		
-				
 				include_once("sqlconnect.php");
 				require_once('functions.php');
-				$conn = getGlobalDBConnection();
-				$stmt = $conn->query("SELECT textarea, login FROM Greetings g"); 
+				$conn = getDBConnection();
+				$stmt = $conn->query("SELECT textarea, login FROM Greetings g ORDER BY id DESC LIMIT 10"); 
 					echo "select";
+					echo "num rows: ".$stmt->num_rows;
 				if ($stmt->num_rows > 0) {
 					echo ">0";
 					// output data of each row
