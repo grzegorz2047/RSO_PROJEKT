@@ -18,10 +18,11 @@ function session_check() {
 }
 function authorize($username,$password, $token) {
 	if ($username !=NULL and $password !=NULL) {
-		if ($userData = isLegit($username, $password)) {
+		$userData = isLegit($username, $password);
+		if ($userData != false) {
 			print_r($userData);
 			echo "Legitne";
-			$user=array('id'=>$userData['id'],'name'=>$userData['name'], 'surname'=>$userData['surname'], 'address'=>$userData['address'], 'nip'=>$userData['nip'], 'pesel'=>$userData['pesel'],'username'=>$username);
+			$user=array('token'=>$token, 'id'=>$userData['id'],'name'=>$userData['name'], 'surname'=>$userData['surname'], 'address'=>$userData['address'], 'nip'=>$userData['nip'], 'pesel'=>$userData['pesel'],'username'=>$username);
 		} else {
 			$user=array('id'=>NULL,'name'=>NULL, 'surname'=>NULL, 'address'=>NULL, 'nip'=>NULL, 'pesel'=>NULL,'username'=>"Visitor");
 		}
