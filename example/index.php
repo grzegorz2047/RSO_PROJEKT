@@ -28,7 +28,7 @@
 				</div>
 				<div class="col-xs-3">
 					<center><h1>Avatar</h1></center>
-					<center><img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:100px;width:100px;" class="img-responsive"></center>
+					<center><img src='."../../uploads/".$user['username']."_avatar.jpg".' style="height:150px;width:150px;" class="img-responsive"></center>
 				</div>
 			</div>';
 		}
@@ -40,12 +40,12 @@
 		</form>
 		<form class="form-horizontal" method="get" action="insertgreeting.php">
 		  <fieldset>
-			<legend>Dodaj pozdrowienie na walla</legend>
+			<legend>Dodaj wiadomosc na walla</legend>
 			<div class="form-group">
 			  <label for="textArea" class="col-lg-2 control-label">Textarea</label>
 			  <div class="col-lg-10">
-				<textarea class="form-control" rows="3" id="textArea" name="textArea"></textarea>
-				<span class="help-block">Wpisz pozdrowienie</span>
+				<textarea class="form-control" rows="3" id="textArea" name="textArea" maxlength="256"></textarea>
+				<span class="help-block">Wpisz cos na walla</span>
 			  </div>
 			</div>
 			<div class="form-group">
@@ -68,6 +68,25 @@
 			<?php		
 				include_once("sqlconnect.php");
 				require_once('functions.php');
+				$cache = redis_get_json('maincache');
+				if($cache) {
+					$rowNumber = 1;
+						while($row = mysql_fetch_assoc($memberData)) {
+							echo "looop".$rowNumber;
+						if($rowNumber % 2 == 0) {
+							echo "<tr>\n";
+						}else {
+							echo "<tr class='success'>\n";
+						}
+						echo "<tr>\n";
+						echo "<td>".$rowNumber."</td>\n";
+						echo "<td>".$row['author']."</td>\n";
+						echo "<td>".$row['textarea']."</td>\n";			
+						echo "</tr>\n";
+						$rowNumber++;
+					}
+					return;
+				}
 				$conn = getGlobalDBConnection();
 				$stmt = $conn->query("SELECT * FROM Greetings g ORDER BY id DESC LIMIT 10"); 
 				echo "select";
@@ -78,6 +97,7 @@
 					echo ">0";
 					// output data of each row
 					$rowNumber = 1;
+					redis_set_json('maincache', mysql_fetch_table($stmt));
 					while($row = $stmt->fetch_assoc()) {
 						echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
