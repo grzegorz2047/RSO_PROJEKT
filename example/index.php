@@ -70,7 +70,7 @@
 				require_once('functions.php');
 				$cache = redis_get_json('maincache');
 				if($cache) {
-					echo $cache;
+					print_r( $cache);
 					$rowNumber = 1;
 						$numRows = count($cache);
 						foreach ($cache as $row) {
@@ -82,7 +82,7 @@
 							echo "<tr>\n";
 							echo "<td>".$rowNumber."</td>\n";
 							echo "<td>".$row['author']."</td>\n";
-							echo "<td>".$row['textarea']."</td>\n";			
+							echo "<td>".$row	['textarea']."</td>\n";			
 							echo "</tr>\n";
 							$rowNumber++;
 						}
