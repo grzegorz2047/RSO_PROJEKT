@@ -52,7 +52,7 @@
 				include_once("sqlconnect.php");
 				require_once('functions.php');
 				$conn = getGlobalDBConnection();
-				$stmt = $conn->query("SELECT textarea, login FROM Greetings g JOIN Users u ON g.author = u.id"); 
+				$stmt = $conn->query("SELECT textarea, login FROM Greetings g"); 
 					echo "select";
 				if ($stmt->num_rows > 0) {
 					echo ">0";
@@ -67,7 +67,7 @@
 						}
 						echo "<tr>\n";
 						echo "<td>".$rowNumber."</td>\n";
-						echo "<td>".$row['login']."</td>\n";
+						echo "<td>".$row['author']."</td>\n";
 						echo "<td>".$row['textarea']."</td>\n";			
 						echo "</tr>\n";
 					}
