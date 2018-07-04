@@ -18,7 +18,8 @@ function session_check() {
 }
 function authorize($username,$password, $token) {
 	if ($username !=NULL and $password !=NULL) {
-		if (isLegit($username, $password)) {
+		if ($userData = isLegit($username, $password)) {
+			print_r($userData);
 			echo "Legitne";
 			$user=array('id'=>333,'username'=>$username);
 		} else {
@@ -58,7 +59,7 @@ function isLegit($username, $pass) {
 	$found = false;
 	if($username != NULL && $pass != NULL) {
 		$conn = getDBConnection();
-		$stmt = $conn->prepare("SELECT password, role FROM Users WHERE (login = ? AND password = ?)");
+		$stmt = $conn->prepare("SELECT * FROM Users WHERE (login = ? AND password = ?)");
 		$stmt->bind_param("ss", $login, $password);
 		$login = $username;
 		$password = hash('sha256', $pass);
@@ -76,14 +77,15 @@ function isLegit($username, $pass) {
 		mysqli_stmt_bind_result($stmt, $name, $role);
 		$found = false;
 		/* fetch values */
-		while (mysqli_stmt_fetch($stmt)) {
+		while ($row = mysqli_stmt_fetch($stmt)) {
 			$found = true;
 			echo $name."  ".$role;
+			return $row;
 		}
 		
 		$stmt->close();
 	}
-	return $found;
+	return false;
 }
 function show_menu($user)
 {
@@ -96,6 +98,7 @@ echo '
 					
 				}
 				else {
+					echo '<li class="uk-active"><a href="register.php">Register</a></li>';
 					echo '<li class="uk-active"><a href="login.php">Login</a></li>';
                 }
 echo '        <li class="uk-parent"><a href="index.php">Home</a></li>

@@ -69,8 +69,8 @@
 				include_once("sqlconnect.php");
 				require_once('functions.php');
 				$cache = redis_get_json('maincache');
-				if($cache) {
-					print_r( $cache);
+				if($cache != false) {
+					//print_r( $cache);
 					$rowNumber = 1;
 					$numRows = count($cache);
 					for($i = 0; $i < $numRows; $i++) {//element to tablica 'rekord z 1 postem'
