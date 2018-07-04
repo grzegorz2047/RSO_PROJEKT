@@ -25,10 +25,10 @@
 			echo 
 			'<div class="row">
 				<div class="col-xs-9 ">
-					<img src="image/b.png " class="pull-right img-responsive">
 				</div>
 				<div class="col-xs-3">
-					<img src='."/var/www/html/uploads/".$user['username']."_avatar.jpg".' class="pull-right img-responsive">
+					<center><h1>Avatar</h1></center>
+					<img src='."uploads/".$user['username']."_avatar.jpg".' class="pull-right img-responsive">
 				</div>
 			</div>';
 		}
