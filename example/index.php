@@ -47,13 +47,19 @@
 			</tr>
 		  </thead>
 		  <tbody>
-			<?php			 	
+			<?php		
+				
+				include_once("sqlconnect.php");
+				require_once('functions.php');
 				$conn = getGlobalDBConnection();
 				$stmt = $conn->query("SELECT textarea, login FROM Greetings g JOIN Users u ON g.author = u.id"); 
+					echo "select";
 				if ($stmt->num_rows > 0) {
+					echo ">0";
 					// output data of each row
 					$rowNumber = 1;
 					while($row = $stmt->fetch_assoc()) {
+						echo "looop".$rowNumber;
 						if($rowNumber % 2 == 0) {
 							echo "<tr>\n";
 						}else {
