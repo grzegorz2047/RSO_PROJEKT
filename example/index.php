@@ -6,10 +6,11 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.min.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/js/uikit.min.js"/>
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-	</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>		
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 	</head>
 	<body>
 	<?PHP show_menu($user); ?>
@@ -24,9 +25,7 @@
 			</tr>
 		  </thead>
 		  <tbody>
-			<?php			
-				include_once('config.php');
-				include_once('sqlinit.php');	
+			<?php			 	
 				$conn = getGlobalDBConnection();
 				$stmt = $conn->query("SELECT textarea, login FROM Greetings g JOIN Users u ON g.author = u.id"); 
 				if ($stmt->num_rows > 0) {
