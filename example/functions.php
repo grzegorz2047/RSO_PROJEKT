@@ -75,12 +75,12 @@ function isLegit($username, $pass) {
 
 		//$result = mysql_query($sql);
 		/* bind result variables */
-		mysqli_stmt_bind_result($stmt, $name, $role);
+		//mysqli_stmt_bind_result($stmt, $name, $role);
 		$found = false;
 		/* fetch values */
 		while ($row = mysqli_stmt_fetch($stmt)) {
 			$found = true;
-			echo $name."  ".$role;
+			//echo $name."  ".$role;
 			return $row;
 		}
 		
