@@ -73,19 +73,19 @@
 					echo $cache;
 					$rowNumber = 1;
 						$numRows = count($cache);
-						for($i = 0; $i < $numRows; $i++) {
-						 if($rowNumber % 2 == 0) {
+						foreach ($cache as $row) {
+							if($rowNumber % 2 == 0) {
+								echo "<tr>\n";
+							}else {
+								echo "<tr class='success'>\n";
+							}
 							echo "<tr>\n";
-						}else {
-							echo "<tr class='success'>\n";
+							echo "<td>".$rowNumber."</td>\n";
+							echo "<td>".$row['author']."</td>\n";
+							echo "<td>".$row['textarea']."</td>\n";			
+							echo "</tr>\n";
+							$rowNumber++;
 						}
-						echo "<tr>\n";
-						echo "<td>".$rowNumber."</td>\n";
-						echo "<td>".$cache[0][$i]['author']."</td>\n";
-						echo "<td>".$cache[0][$i]['textarea']."</td>\n";			
-						echo "</tr>\n";
-						$rowNumber++;
-					}
 					return;
 				}
 				$conn = getGlobalDBConnection();
