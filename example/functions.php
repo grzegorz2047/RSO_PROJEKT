@@ -22,7 +22,7 @@ function authorize($username,$password, $token) {
 		if ($userData != false) {
 			print_r($userData);
 			echo "Legitne";
-			$user=array('token'=>$token, 'id'=>$userData['id'],'name'=>$userData['name'], 'surname'=>$userData['surname'], 'address'=>$userData['address'], 'nip'=>$userData['nip'], 'pesel'=>$userData['pesel'],'username'=>$username);
+			$user=array('token'=>$token, 'id'=>333,'name'=>$userData['name'], 'surname'=>$userData['surname'], 'address'=>$userData['address'], 'nip'=>$userData['nip'], 'pesel'=>$userData['pesel'],'username'=>$username);
 		} else {
 			$user=array('id'=>NULL,'name'=>NULL, 'surname'=>NULL, 'address'=>NULL, 'nip'=>NULL, 'pesel'=>NULL,'username'=>"Visitor");
 		}
