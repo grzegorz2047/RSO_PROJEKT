@@ -53,6 +53,7 @@
 			</div>
 		  </fieldset>
 		</form>';
+			print_r($user);
 			echo "name ".$user['name']."<br>".$user['surname']."<br>".$user['address']."<br>".$user['nip']."<br>".$user['pesel']."<br>";
 		}
 	?>
